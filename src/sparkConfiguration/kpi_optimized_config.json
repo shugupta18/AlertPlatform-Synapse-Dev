@@ -1,0 +1,32 @@
+{
+	"name": "kpi_optimized_config",
+	"properties": {
+		"configs": {
+			"spark.sql.shuffle.partitions": "4",
+			"spark.sql.execution.arrow.pyspark.enabled": "true",
+			"spark.sql.adaptive.enabled": "true",
+			"spark.sql.adaptive.coalescePartitions.enabled": "true",
+			"spark.executor.memoryOverhead": "512m",
+			"spark.executor.heartbeatInterval": "30s",
+			"spark.network.timeout": "300s",
+			"spark.sql.broadcastTimeout": "300",
+			"spark.sql.autoBroadcastJoinThreshold": "50MB",
+			"spark.sql.files.maxPartitionBytes": "64MB"
+		},
+		"created": "2025-11-07T13:33:38.258Z",
+		"createdBy": "shugupta1811@burstinbytes.in",
+		"annotations": [],
+		"configMergeRule": {
+			"artifact.currentOperation.spark.sql.shuffle.partitions": "replace",
+			"artifact.currentOperation.spark.sql.execution.arrow.pyspark.enabled": "replace",
+			"artifact.currentOperation.spark.sql.adaptive.enabled": "replace",
+			"artifact.currentOperation.spark.sql.adaptive.coalescePartitions.enabled": "replace",
+			"artifact.currentOperation.spark.executor.memoryOverhead": "replace",
+			"artifact.currentOperation.spark.executor.heartbeatInterval": "replace",
+			"artifact.currentOperation.spark.network.timeout": "replace",
+			"artifact.currentOperation.spark.sql.broadcastTimeout": "replace",
+			"artifact.currentOperation.spark.sql.autoBroadcastJoinThreshold": "replace",
+			"artifact.currentOperation.spark.sql.files.maxPartitionBytes": "replace"
+		}
+	}
+}
