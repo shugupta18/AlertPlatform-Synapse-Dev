@@ -1,0 +1,405 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"type": "string",
+			"metadata": "Workspace name",
+			"defaultValue": "synapse-workspace-dotpl"
+		},
+		"synapse-workspace-dotpl-WorkspaceDefaultSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'synapse-workspace-dotpl-WorkspaceDefaultSqlServer'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:synapse-workspace-dotpl.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"synapse-workspace-dotpl-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dotpladlsv2.dfs.core.windows.net"
+		}
+	},
+	"variables": {
+		"workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('workspaceName'), '/sparkkpi')]",
+			"type": "Microsoft.Synapse/workspaces/bigDataPools",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/synapse-workspace-dotpl-WorkspaceDefaultSqlServer')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"parameters": {
+					"DBName": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('synapse-workspace-dotpl-WorkspaceDefaultSqlServer_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/synapse-workspace-dotpl-WorkspaceDefaultStorage')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('synapse-workspace-dotpl-WorkspaceDefaultStorage_properties_typeProperties_url')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/AutoResolveIntegrationRuntime')]",
+			"type": "Microsoft.Synapse/workspaces/integrationRuntimes",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "AutoResolve",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 8,
+							"timeToLive": 0
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/WorkspaceSystemIdentity')]",
+			"type": "Microsoft.Synapse/workspaces/credentials",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "ManagedIdentity",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/Indecab_notebook')]",
+			"type": "Microsoft.Synapse/workspaces/notebooks",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"nbformat": 4,
+				"nbformat_minor": 2,
+				"bigDataPool": {
+					"referenceName": "sparkkpi",
+					"type": "BigDataPoolReference"
+				},
+				"sessionProperties": {
+					"driverMemory": "28g",
+					"driverCores": 4,
+					"executorMemory": "28g",
+					"executorCores": 4,
+					"numExecutors": 2,
+					"runAsWorkspaceSystemIdentity": false,
+					"conf": {
+						"spark.dynamicAllocation.enabled": "false",
+						"spark.dynamicAllocation.minExecutors": "2",
+						"spark.dynamicAllocation.maxExecutors": "2",
+						"spark.autotune.trackingId": "cc135203-eaed-4a7b-810f-374a9e79de18"
+					}
+				},
+				"metadata": {
+					"saveOutput": true,
+					"enableDebugMode": false,
+					"kernelspec": {
+						"name": "synapse_pyspark",
+						"display_name": "Synapse PySpark"
+					},
+					"language_info": {
+						"name": "python"
+					},
+					"a365ComputeOptions": {
+						"id": "/subscriptions/42f20fa9-3073-4ab8-9009-ee5b9e3edadc/resourceGroups/dotpl/providers/Microsoft.Synapse/workspaces/synapse-workspace-dotpl/bigDataPools/sparkkpi",
+						"name": "sparkkpi",
+						"type": "Spark",
+						"endpoint": "https://synapse-workspace-dotpl.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkkpi",
+						"auth": {
+							"type": "AAD",
+							"authResource": "https://dev.azuresynapse.net"
+						},
+						"sparkVersion": "3.5",
+						"nodeCount": 3,
+						"cores": 4,
+						"memory": 28,
+						"automaticScaleJobs": false
+					},
+					"sessionKeepAliveTimeout": 30
+				},
+				"cells": [
+					{
+						"cell_type": "code",
+						"metadata": {},
+						"source": [
+							"from pyspark.sql import SparkSession\n",
+							"from pyspark.sql.functions import when, col, lit\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": 2
+					},
+					{
+						"cell_type": "code",
+						"metadata": {
+							"collapsed": false
+						},
+						"source": [
+							"\n",
+							"\n",
+							"# Example: read Odoo staging parquet\n",
+							"indecab_network_requests_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/Staging/ITH/Indecab_Dashboard/Indecab_Network_Requests.parquet\")\n",
+							"\n",
+							"# Example: read MSSQL staging parquet\n",
+							"# mssql_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/staging/mssql_booking/*\")\n",
+							"\n",
+							"\n",
+							"display(indecab_network_requests_df.head(10))\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"metadata": {},
+						"source": [
+							"last_run_at_ist = mssparkutils.notebook.params.get(\"last_run_at_ist\")\n",
+							"print(f\"Parameter from pipeline: {last_run_at_ist}\")\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"metadata": {
+							"collapsed": false
+						},
+						"source": [
+							"# kpi_counts = final_df.groupBy(\"status_category\").count()\n",
+							"\n",
+							"kpi_summary = indecab_network_requests_df.groupBy(\"status\").count()\n",
+							"\n",
+							"display(kpi_summary)\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"metadata": {},
+						"source": [
+							"# odoo_df = spark.read \\\n",
+							"#     .format(\"jdbc\") \\\n",
+							"#     .option(\"url\", \"jdbc:postgresql://216.48.184.195:5432/ithfleet\") \\\n",
+							"#     .option(\"dbtable\", \"sale_order\") \\\n",
+							"#     .option(\"user\", \"adf_reader\") \\\n",
+							"#     .option(\"password\", \"<POSTGRES_PASSWORD>\") \\\n",
+							"#     .option(\"driver\", \"org.postgresql.Driver\") \\\n",
+							"#     .load()\n",
+							"\n",
+							"# # 2️⃣ Read from MSSQL (RACDOTDB)\n",
+							"# mssql_df = spark.read \\\n",
+							"#     .format(\"jdbc\") \\\n",
+							"#     .option(\"url\", \"jdbc:sqlserver://164.52.216.126;databaseName=RACDOTDB\") \\\n",
+							"#     .option(\"dbtable\", \"dbo.Booking\") \\\n",
+							"#     .option(\"user\", \"RACPRO\") \\\n",
+							"#     .option(\"password\", \"<MSSQL_PASSWORD>\") \\\n",
+							"#     .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
+							"#     .load()\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"metadata": {},
+						"source": [
+							"# joined_df = odoo_df.join(\n",
+							"#     mssql_df,\n",
+							"#     odoo_df.booking_no == mssql_df.booking_no,\n",
+							"#     how=\"outer\"\n",
+							"# )\n",
+							"\n",
+							"# # Select relevant columns\n",
+							"# joined_df = joined_df.select(\n",
+							"#     odoo_df[\"id\"].alias(\"odoo_id\"),\n",
+							"#     odoo_df[\"booking_no\"],\n",
+							"#     odoo_df[\"state\"].alias(\"odoo_state\"),\n",
+							"#     mssql_df[\"vendor_name\"],\n",
+							"#     mssql_df[\"status\"].alias(\"mssql_status\")\n",
+							"# )\n",
+							"\n",
+							"# # 4️⃣ Add derived columns for KPI\n",
+							"# final_df = joined_df \\\n",
+							"#     .withColumn(\"integration_source\",\n",
+							"#                 when(col(\"vendor_name\").isNotNull(), lit(\"MSSQL\"))\n",
+							"#                 .otherwise(lit(\"Odoo\"))) \\\n",
+							"#     .withColumn(\"status_category\",\n",
+							"#                 when(col(\"odoo_state\") == \"error\", lit(\"Error\"))\n",
+							"#                 .when(col(\"odoo_state\") == \"pending\", lit(\"Pending\"))\n",
+							"#                 .otherwise(lit(\"Completed\")))\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "markdown",
+						"metadata": {
+							"nteract": {
+								"transient": {
+									"deleting": false
+								}
+							}
+						},
+						"source": [
+							"### Prepare KPI_SUMMARY table"
+						]
+					},
+					{
+						"cell_type": "code",
+						"metadata": {},
+						"source": [
+							"\n",
+							"# # 5️⃣ Write to Azure SQL Database\n",
+							"# final_df.write \\\n",
+							"#     .format(\"jdbc\") \\\n",
+							"#     .option(\"url\", \"jdbc:sqlserver://alert-platform-sql-server.database.windows.net;databaseName=AlertPlatformDB\") \\\n",
+							"#     .option(\"dbtable\", \"kpi_details_proj1\") \\\n",
+							"#     .option(\"user\", \"<AZURE_SQL_USER>\") \\\n",
+							"#     .option(\"password\", \"<AZURE_SQL_PASSWORD>\") \\\n",
+							"#     .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
+							"#     .mode(\"overwrite\") \\\n",
+							"#     .save()\n",
+							"\n",
+							"# # Write summary (optional)\n",
+							"# kpi_counts.write \\\n",
+							"#     .format(\"jdbc\") \\\n",
+							"#     .option(\"url\", \"jdbc:sqlserver://alert-platform-sql-server.database.windows.net;databaseName=AlertPlatformDB\") \\\n",
+							"#     .option(\"dbtable\", \"kpi_summary_proj1\") \\\n",
+							"#     .option(\"user\", \"<AZURE_SQL_USER>\") \\\n",
+							"#     .option(\"password\", \"<AZURE_SQL_PASSWORD>\") \\\n",
+							"#     .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
+							"#     .mode(\"overwrite\") \\\n",
+							"#     .save()\n",
+							"\n",
+							"# print(\"✅ Data successfully loaded to Azure SQL Database\")"
+						],
+						"outputs": [],
+						"execution_count": null
+					},
+					{
+						"cell_type": "code",
+						"metadata": {},
+						"source": [
+							"# from datetime import datetime\n",
+							"# now = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n",
+							"# final_df = final_df.withColumn(\"run_timestamp\", lit(now))\n",
+							""
+						],
+						"outputs": [],
+						"execution_count": null
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/kpi_optimized_config')]",
+			"type": "Microsoft.Synapse/workspaces/sparkConfigurations",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"configs": {
+					"spark.sql.shuffle.partitions": "4",
+					"spark.sql.execution.arrow.pyspark.enabled": "true",
+					"spark.sql.adaptive.enabled": "true",
+					"spark.sql.adaptive.coalescePartitions.enabled": "true",
+					"spark.executor.memoryOverhead": "512m",
+					"spark.executor.heartbeatInterval": "30s",
+					"spark.network.timeout": "300s",
+					"spark.sql.broadcastTimeout": "300",
+					"spark.sql.autoBroadcastJoinThreshold": "50MB",
+					"spark.sql.files.maxPartitionBytes": "64MB"
+				},
+				"created": "2025-11-07T13:33:38.258Z",
+				"createdBy": "shugupta1811@burstinbytes.in",
+				"annotations": [],
+				"configMergeRule": {
+					"artifact.currentOperation.spark.sql.shuffle.partitions": "replace",
+					"artifact.currentOperation.spark.sql.execution.arrow.pyspark.enabled": "replace",
+					"artifact.currentOperation.spark.sql.adaptive.enabled": "replace",
+					"artifact.currentOperation.spark.sql.adaptive.coalescePartitions.enabled": "replace",
+					"artifact.currentOperation.spark.executor.memoryOverhead": "replace",
+					"artifact.currentOperation.spark.executor.heartbeatInterval": "replace",
+					"artifact.currentOperation.spark.network.timeout": "replace",
+					"artifact.currentOperation.spark.sql.broadcastTimeout": "replace",
+					"artifact.currentOperation.spark.sql.autoBroadcastJoinThreshold": "replace",
+					"artifact.currentOperation.spark.sql.files.maxPartitionBytes": "replace"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/sparkkpi')]",
+			"type": "Microsoft.Synapse/workspaces/bigDataPools",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"autoPause": {
+					"enabled": true,
+					"delayInMinutes": 5
+				},
+				"autoScale": {
+					"enabled": false,
+					"maxNodeCount": 10,
+					"minNodeCount": 3
+				},
+				"nodeCount": 3,
+				"nodeSize": "Small",
+				"nodeSizeFamily": "MemoryOptimized",
+				"sparkVersion": "3.5",
+				"isComputeIsolationEnabled": false,
+				"sparkConfigProperties": {
+					"configurationType": "Artifact",
+					"filename": "kpi_optimized_config",
+					"content": "{\"name\":\"kpi_optimized_config\",\"properties\":{\"configs\":{\"spark.sql.shuffle.partitions\":\"4\",\"spark.sql.execution.arrow.pyspark.enabled\":\"true\",\"spark.sql.adaptive.enabled\":\"true\",\"spark.sql.adaptive.coalescePartitions.enabled\":\"true\",\"spark.executor.memoryOverhead\":\"512m\",\"spark.executor.heartbeatInterval\":\"30s\",\"spark.network.timeout\":\"300s\",\"spark.sql.broadcastTimeout\":\"300\",\"spark.sql.autoBroadcastJoinThreshold\":\"50MB\",\"spark.sql.files.maxPartitionBytes\":\"64MB\"},\"annotations\":[],\"type\":\"Microsoft.Synapse/workspaces/sparkconfigurations\",\"description\":\"\",\"notes\":\"\",\"created\":\"2025-11-07T19:03:38.2580000+05:30\",\"createdBy\":\"shugupta1811@burstinbytes.in\",\"configMergeRule\":{\"admin.currentOperation.spark.sql.shuffle.partitions\":\"replace\",\"admin.currentOperation.spark.sql.execution.arrow.pyspark.enabled\":\"replace\",\"admin.currentOperation.spark.sql.adaptive.enabled\":\"replace\",\"admin.currentOperation.spark.sql.adaptive.coalescePartitions.enabled\":\"replace\",\"admin.currentOperation.spark.executor.memoryOverhead\":\"replace\",\"admin.currentOperation.spark.executor.heartbeatInterval\":\"replace\",\"admin.currentOperation.spark.network.timeout\":\"replace\",\"admin.currentOperation.spark.sql.broadcastTimeout\":\"replace\",\"admin.currentOperation.spark.sql.autoBroadcastJoinThreshold\":\"replace\",\"admin.currentOperation.spark.sql.files.maxPartitionBytes\":\"replace\"}}}",
+					"time": "2025-11-07T13:34:04.5382003Z"
+				},
+				"sessionLevelPackagesEnabled": false,
+				"annotations": []
+			},
+			"dependsOn": [],
+			"location": "centralindia"
+		}
+	]
+}
