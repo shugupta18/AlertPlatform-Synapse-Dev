@@ -115,7 +115,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "e034a83d-9971-4123-948c-5e049ed32b81"
+						"spark.autotune.trackingId": "84edd2bf-39f3-419c-85ce-803fa26a5446"
 					}
 				},
 				"metadata": {
@@ -166,7 +166,7 @@
 							"\n",
 							"\n",
 							"# Example: read Odoo staging parquet\n",
-							"indecab_network_requests_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/synapse/Staging/ITH/Indecab_Dashboard/Indecab_Network_Requests.parquet\")\n",
+							"indecab_network_requests_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/Staging/ITH/Indecab_Dashboard/Indecab_Network_Requests.parquet\")\n",
 							"\n",
 							"# Example: read MSSQL staging parquet\n",
 							"# mssql_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/staging/mssql_booking/*\")\n",
