@@ -18,554 +18,16 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "e77c7775-360f-4944-a276-1a8bb0bef7ff"
+				"spark.autotune.trackingId": "6e35d971-8f31-4303-ad50-a5e3576cac84"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
-			"synapse_widget": {
-				"version": "0.1",
-				"state": {
-					"379c68df-4408-44f3-ada1-f0c08108b3e2": {
-						"type": "Synapse.DataFrame",
-						"sync_state": {
-							"table": {
-								"rows": [
-									{
-										"0": "1003",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_wYuCW9nE6ShN4bJrt_C8yBh",
-										"2": "d00106c879c2e520c3b953a3450eae5d867d3f6e",
-										"3": "booking.duty.network.incoming-request",
-										"4": "wYuCW9nE6ShN4bJrt",
-										"5": "Bengaluru",
-										"6": "",
-										"7": "2025-08-29 09:00:00",
-										"8": "2025-08-29 23:59:59",
-										"9": "1970-01-01 09:00:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "WTC Brigade Gateway",
-										"12": "CTA Apperal - Indranagar",
-										"13": "Local - Supplier Visit",
-										"14": "hourKm",
-										"15": "40",
-										"16": "4",
-										"17": "Toyota Innova Crysta",
-										"18": "iHMEwcm26tMsNLEN",
-										"19": "1",
-										"20": "REJECTED",
-										"21": "2025-07-25 15:48:52.273",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{}}",
-										"24": "2025-07-25 08:40:04.23",
-										"25": "system",
-										"26": "2025-07-25 15:48:52.273",
-										"27": "SUPERVISOR"
-									},
-									{
-										"0": "1004",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_jM3xsYyytfKmfScAm_Hm6mW",
-										"2": "4c3908fc93a9093c6e25bc4767821bce02b35bcd",
-										"3": "booking.duty.network.incoming-request",
-										"4": "jM3xsYyytfKmfScAm",
-										"5": "Bengaluru",
-										"6": "",
-										"7": "2025-08-27 19:00:00",
-										"8": "2025-08-27 23:59:59",
-										"9": "1970-01-01 19:00:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "Brigade Gateway",
-										"12": "Terminal - 2",
-										"13": "Local - Supplier Visit",
-										"14": "hourKm",
-										"15": "40",
-										"16": "4",
-										"17": "Toyota Innova Crysta",
-										"18": "srtzbrXRXopHG4kf",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-07-25 15:09:44.527",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"kqZfJPRAMWh8cJmXc\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"oJqQS7NnTB5f2HehD\",\"vehicleGroupId\":\"gdg8v8nJhzxHjMZXR\",\"labels\":[],\"passenger\":[{\"name\":\"For Testing\",\"phoneNumber\":\"9871913331\",\"email\":\"niitajay6@yahoo.com\"}],\"bookedBy\":{\"name\":\"Ajay\",\"phoneNumber\":\"9871913331\",\"email\":\"ajay.kumar2@hm.com\"},\"city\":{\"fromId\":\"mFBeoGdW8CXiqK5xW\",\"toId\":\"mFBeoGdW8CXiqK5xW\",\"fromName\":\"Bengaluru\",\"toName\":\"Bengaluru\"},\"startAt\":\"2025-08-27T12:30:00.000Z\",\"endAt\":\"2025-08-27T18:29:59.000Z\",\"reportingTime\":\"19:00\",\"garageStart\":60,\"remarks\":\"Airport Drop\",\"reportingAddress\":\"Brigade Gateway\",\"dropAddress\":\"Terminal - 2\",\"bookingId\":\"18491370\",\"price\":0,\"extraKmRate\":0,\"extraHrRate\":0,\"status\":\"booked\",\"associateBookingId\":\"32332527\",\"dutyTypeName\":\"Local - Supplier Visit\",\"vehicleGroupName\":\"Toyota Innova Crysta\",\"duties\":[{\"_id\":\"XqEAWXE7P2AHstiut\",\"number\":1,\"pickUpTime\":\"2025-08-27T12:30:00.000Z\",\"dropOffTime\":\"2025-08-27T18:29:59.000Z\",\"dropAddress\":\"Terminal - 2\",\"reportingAddress\":\"Brigade Gateway\",\"remarks\":\"Airport Drop\",\"ftNo\":\"\",\"dutyTypeName\":\"Local - Supplier Visit\",\"vehicleGroupName\":\"Toyota Innova Crysta\"}]}}",
-										"24": "2025-07-25 08:40:08.837",
-										"25": "system",
-										"26": "2025-07-25 15:26:26.427",
-										"27": "SUPERVISOR"
-									},
-									{
-										"0": "2016",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_8R9ZpKrn5TPJPsikL_XrvcA",
-										"2": "e478d9204d526d54d9b59d6b459edd477eef311c",
-										"3": "booking.duty.network.incoming-request",
-										"4": "8R9ZpKrn5TPJPsikL",
-										"5": "Delhi",
-										"6": "",
-										"7": "2025-07-31 06:30:00",
-										"8": "2025-07-31 23:59:59",
-										"9": "1970-01-01 06:30:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "Vasanthapura Temple, Bangalore 61",
-										"12": "IDPL Unit 9 survey no. 293, 366-2 & 366-3, Parigi-Village & Mandal, Penukonda Taluk, Sri Satya Sai Dst, 515261, Ananthpur district",
-										"13": "Outstation - Supplier Visit",
-										"14": "dayKm",
-										"15": "250",
-										"16": "0",
-										"17": "Toyota Innova Crysta",
-										"18": "TocJCD6LLxZcBwqY",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-07-30 15:47:42.963",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"pvchZBC2AnxKbiZZG\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"5XspnPSj8nQjDk3cp\",\"vehicleGroupId\":\"gdg8v8nJhzxHjMZXR\",\"labels\":[],\"passenger\":[{\"name\":\"Nithya Prasanna Kumar\",\"phoneNumber\":\"9986643484\",\"email\":\"nithya.prasannakumar@hm.com\"}],\"city\":{\"fromId\":\"Ha2L3hPAbHqq5s42k\",\"fromName\":\"Delhi\"},\"startAt\":\"2025-07-31T01:00:00.000Z\",\"endAt\":\"2025-07-31T18:29:59.000Z\",\"reportingTime\":\"06:30\",\"garageStart\":0,\"remarks\":\"Start at 6.30 AM and return back to Bangalore (Vasanthapura Temple) on the same day before 9pm\",\"etd\":\"23:59\",\"reportingAddress\":\"Vasanthapura Temple, Bangalore 61\",\"dropAddress\":\"IDPL Unit 9 survey no. 293, 366-2 & 366-3, Parigi-Village & Mandal, Penukonda Taluk, Sri Satya Sai Dst, 515261, Ananthpur district\",\"bookingId\":\"99637982\",\"price\":0,\"extraKmRate\":0,\"status\":\"booked\",\"associateBookingId\":\"12022951\",\"dutyTypeName\":\"Outstation - Supplier Visit\",\"vehicleGroupName\":\"Toyota Innova Crysta\",\"duties\":[{\"_id\":\"Dp6adaYxzQdjQy6SF\",\"number\":1,\"pickUpTime\":\"2025-07-31T01:00:00.000Z\",\"dropOffTime\":\"2025-07-31T18:29:59.000Z\",\"dropAddress\":\"IDPL Unit 9 survey no. 293, 366-2 & 366-3, Parigi-Village & Mandal, Penukonda Taluk, Sri Satya Sai Dst, 515261, Ananthpur district\",\"reportingAddress\":\"Vasanthapura Temple, Bangalore 61\",\"remarks\":\"Start at 6.30 AM and return back to Bangalore (Vasanthapura Temple) on the same day before 9pm\",\"ftNo\":\"\",\"dutyTypeName\":\"Outstation - Supplier Visit\",\"vehicleGroupName\":\"Toyota Innova Crysta\"}]}}",
-										"24": "2025-07-30 10:15:12.733",
-										"25": "system",
-										"26": "2025-07-30 16:18:25.11",
-										"27": "vijaykashyap"
-									},
-									{
-										"0": "2017",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_a7gzmJBRtH3X4u36e_pidTN",
-										"2": "c38e23e87383a66af3fb869b56fac81063b833fa",
-										"3": "booking.duty.network.incoming-request",
-										"4": "a7gzmJBRtH3X4u36e",
-										"5": "Gurugram",
-										"6": "Panipat",
-										"7": "2025-08-01 07:30:00",
-										"8": "2025-08-01 23:59:59",
-										"9": "1970-01-01 07:30:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "Maruti Vihar Housing Society, F3GJ+497, Sector 28, Maruti Housing Colony, Gurugram, Haryana 122002, India",
-										"12": "Panipat, Panipat, Haryana, India",
-										"13": "Outstation - Supplier Visit",
-										"14": "dayKm",
-										"15": "250",
-										"16": "0",
-										"17": "Toyota Innova Crysta",
-										"18": "HjmR9v5EMasgdWPS",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-07-30 16:00:42.277",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"QZtA9cpc45Q5YtJqy\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"5XspnPSj8nQjDk3cp\",\"vehicleGroupId\":\"gdg8v8nJhzxHjMZXR\",\"labels\":[],\"passenger\":[{\"name\":\"Suresh Kumar Sajja\",\"phoneNumber\":\"9871419363\",\"email\":\"sureshkumar.sajja@hm.com\"}],\"city\":{\"fromId\":\"EQGCcmBjyZCQcHHKz\",\"toId\":\"eeqcc9BE6kvam9sWR\",\"fromName\":\"Gurugram\",\"toName\":\"Panipat\"},\"startAt\":\"2025-08-01T02:00:00.000Z\",\"endAt\":\"2025-08-01T18:29:59.000Z\",\"reportingTime\":\"07:30\",\"garageStart\":0,\"ftNo\":\"NA\",\"remarks\":\"Going to Panipat.\",\"etd\":\"23:59\",\"reportingAddress\":\"Maruti Vihar Housing Society, F3GJ+497, Sector 28, Maruti Housing Colony, Gurugram, Haryana 122002, India\",\"dropAddress\":\"Panipat, Panipat, Haryana, India\",\"bookingId\":\"94913947\",\"price\":0,\"extraKmRate\":0,\"status\":\"booked\",\"associateBookingId\":\"60954113\",\"dutyTypeName\":\"Outstation - Supplier Visit\",\"vehicleGroupName\":\"Toyota Innova Crysta\",\"duties\":[{\"_id\":\"sTtjQrjNZZAi2omaB\",\"number\":1,\"pickUpTime\":\"2025-08-01T02:00:00.000Z\",\"dropOffTime\":\"2025-08-01T18:29:59.000Z\",\"dropAddress\":\"Panipat, Panipat, Haryana, India\",\"reportingAddress\":\"Maruti Vihar Housing Society, F3GJ+497, Sector 28, Maruti Housing Colony, Gurugram, Haryana 122002, India\",\"remarks\":\"Going to Panipat.\",\"ftNo\":\"NA\",\"dutyTypeName\":\"Outstation - Supplier Visit\",\"vehicleGroupName\":\"Toyota Innova Crysta\"}]}}",
-										"24": "2025-07-30 10:16:42.86",
-										"25": "system",
-										"26": "2025-07-30 16:18:35.353",
-										"27": "vijaykashyap"
-									},
-									{
-										"0": "2018",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_Tvv6BrZctrQCjiL9Y_hWgdr",
-										"2": "36b9499110153875a8eaa0cd51ca66b8240b3e62",
-										"3": "booking.duty.network.incoming-request",
-										"4": "Tvv6BrZctrQCjiL9Y",
-										"5": "Delhi",
-										"6": "",
-										"7": "2025-08-02 07:00:00",
-										"8": "2025-08-02 23:59:59",
-										"9": "1970-01-01 07:00:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "132 D, Pocket C, Sidhartha Extension, New Delhi -14",
-										"12": "International Airport terminal 3, New Delhi",
-										"13": "Airport Transfers",
-										"14": "flatRate",
-										"15": "0",
-										"16": "0",
-										"17": "Dzire/Amaze/Etios",
-										"18": "5tejubkevFrCA4Hv",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-07-30 16:02:30.473",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"k9vLgA2qrKWbJkqXa\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"L9i4s4jqe2ARxbzjd\",\"vehicleGroupId\":\"orf3PDzd8nw3yBqvk\",\"labels\":[],\"passenger\":[{\"name\":\"Hari Kumar Ramachandran Nair\",\"phoneNumber\":\"9810536629\",\"email\":\"hari.kumar@hm.com\"}],\"city\":{\"fromId\":\"Ha2L3hPAbHqq5s42k\",\"toId\":\"Ha2L3hPAbHqq5s42k\",\"fromName\":\"Delhi\",\"toName\":\"Delhi\"},\"startAt\":\"2025-08-02T01:30:00.000Z\",\"endAt\":\"2025-08-02T18:29:59.000Z\",\"reportingTime\":\"07:00\",\"garageStart\":0,\"ftNo\":\"AI2415\",\"reportingAddress\":\"132 D, Pocket C, Sidhartha Extension, New Delhi -14\",\"dropAddress\":\"International Airport terminal 3, New Delhi\",\"bookingId\":\"19279331\",\"price\":0,\"status\":\"booked\",\"associateBookingId\":\"76453653\",\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\",\"duties\":[{\"_id\":\"gX6DFaCBjEXg7xXYL\",\"number\":1,\"pickUpTime\":\"2025-08-02T01:30:00.000Z\",\"dropOffTime\":\"2025-08-02T18:29:59.000Z\",\"dropAddress\":\"International Airport terminal 3, New Delhi\",\"reportingAddress\":\"132 D, Pocket C, Sidhartha Extension, New Delhi -14\",\"remarks\":\"\",\"ftNo\":\"AI2415\",\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\"}]}}",
-										"24": "2025-07-30 10:18:09.343",
-										"25": "system",
-										"26": "2025-07-30 16:18:45.52",
-										"27": "vijaykashyap"
-									},
-									{
-										"0": "2020",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_EEtC4m8gKT4fNXQEo_Q3Hto",
-										"2": "f1bdbc59e0509f66ccb4d3c40651590bb6560a41",
-										"3": "booking.duty.network.incoming-request",
-										"4": "EEtC4m8gKT4fNXQEo",
-										"5": "Bengaluru",
-										"6": "",
-										"7": "2025-08-01 15:00:00",
-										"8": "2025-08-01 23:59:59",
-										"9": "1970-01-01 15:00:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "World Trade Center, World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055, India",
-										"12": "1 MG - Lido Mall, 1/2, Old Madras Rd, Halasuru, Someshwarpura, Sivanchetti Gardens, Bengaluru, Karnataka 560008, India",
-										"13": "Local Uses",
-										"14": "hourKm",
-										"15": "80",
-										"16": "8",
-										"17": "Toyota Innova Crysta",
-										"18": "DTspfppNtgyYseXB",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-08-01 09:47:41.26",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"CG3xup6EbkYYyqTTu\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"ZvkhYkbDygtDh7tCG\",\"vehicleGroupId\":\"gdg8v8nJhzxHjMZXR\",\"labels\":[],\"passenger\":[{\"name\":\"Stuti Pinge\",\"phoneNumber\":\"9704743044\",\"email\":\"stuti.pinge@hm.com\"}],\"city\":{\"fromId\":\"mFBeoGdW8CXiqK5xW\",\"toId\":\"mFBeoGdW8CXiqK5xW\",\"fromName\":\"Bengaluru\",\"toName\":\"Bengaluru\"},\"startAt\":\"2025-08-01T09:30:00.000Z\",\"endAt\":\"2025-08-01T18:29:59.000Z\",\"reportingTime\":\"15:00\",\"garageStart\":0,\"remarks\":\"Please note: Total of five members will be traveling in this vehicle. After the factory visit, they will be dropped individually at their respective locations. Kindly inform the driver to coordinate with the employees for their home drop.\",\"etd\":\"23:59\",\"reportingAddress\":\"World Trade Center, World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055, India\",\"dropAddress\":\"1 MG - Lido Mall, 1/2, Old Madras Rd, Halasuru, Someshwarpura, Sivanchetti Gardens, Bengaluru, Karnataka 560008, India\",\"bookingId\":\"95814277\",\"price\":0,\"extraKmRate\":0,\"extraHrRate\":0,\"status\":\"booked\",\"associateBookingId\":\"90987387\",\"dutyTypeName\":\"Local Uses\",\"vehicleGroupName\":\"Toyota Innova Crysta\",\"duties\":[{\"_id\":\"b8EAtGK5WKuxxpg74\",\"number\":1,\"pickUpTime\":\"2025-08-01T09:30:00.000Z\",\"dropOffTime\":\"2025-08-01T18:29:59.000Z\",\"dropAddress\":\"1 MG - Lido Mall, 1/2, Old Madras Rd, Halasuru, Someshwarpura, Sivanchetti Gardens, Bengaluru, Karnataka 560008, India\",\"reportingAddress\":\"World Trade Center, World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055, India\",\"remarks\":\"Please note: Total of five members will be traveling in this vehicle. After the factory visit, they will be dropped individually at their respective locations. Kindly inform the driver to coordinate with the employees for their home drop.\",\"ftNo\":\"\",\"dutyTypeName\":\"Local Uses\",\"vehicleGroupName\":\"Toyota Innova Crysta\"}]}}",
-										"24": "2025-07-31 11:18:41.44",
-										"25": "system",
-										"26": "2025-08-01 09:47:48.97",
-										"27": "sagarchauhan"
-									},
-									{
-										"0": "2021",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_f92cw893b9gsE99YY_NZrq4",
-										"2": "306dc20928cb0b5b28851d06dea91074914673b7",
-										"3": "booking.duty.network.incoming-request",
-										"4": "f92cw893b9gsE99YY",
-										"5": "Bengaluru",
-										"6": "",
-										"7": "2025-08-01 13:30:00",
-										"8": "2025-08-01 23:59:59",
-										"9": "1970-01-01 13:30:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "H&m WTC Brigade Gateway",
-										"12": "Phoenix Mall Of Asia - 239/240, Byatarayanapura, Yelahanka, Hobli, Yelahanka Taluk, Bellary Rd, Bengaluru, Karnataka 560092",
-										"13": "Local Uses",
-										"14": "hourKm",
-										"15": "80",
-										"16": "8",
-										"17": "Dzire/Amaze/Etios",
-										"18": "zsakSgW5oAhE8BFr",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-08-01 11:09:22.37",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"nqykYLnDTojs3gsTK\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"ZvkhYkbDygtDh7tCG\",\"vehicleGroupId\":\"orf3PDzd8nw3yBqvk\",\"labels\":[],\"passenger\":[{\"name\":\"Punitha Paul\",\"phoneNumber\":\"9972520529\",\"email\":\"punitha.paul@hm.com\"}],\"bookedBy\":{\"name\":\"Ajay\",\"phoneNumber\":\"9871913331\",\"email\":\"ajay.kumar2@hm.com\"},\"city\":{\"fromId\":\"mFBeoGdW8CXiqK5xW\",\"toId\":\"mFBeoGdW8CXiqK5xW\",\"fromName\":\"Bengaluru\",\"toName\":\"Bengaluru\"},\"startAt\":\"2025-08-01T08:00:00.000Z\",\"endAt\":\"2025-08-01T18:29:59.000Z\",\"reportingTime\":\"13:30\",\"garageStart\":0,\"remarks\":\"Guest will use this car for full days\",\"reportingAddress\":\"H&m WTC Brigade Gateway\",\"dropAddress\":\"Phoenix Mall Of Asia - 239/240, Byatarayanapura, Yelahanka, Hobli, Yelahanka Taluk, Bellary Rd, Bengaluru, Karnataka 560092\",\"bookingId\":\"11986898\",\"price\":0,\"extraKmRate\":0,\"extraHrRate\":0,\"status\":\"booked\",\"associateBookingId\":\"69804376\",\"dutyTypeName\":\"Local Uses\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\",\"duties\":[{\"_id\":\"9mHthWEj93ZArqh2K\",\"number\":1,\"pickUpTime\":\"2025-08-01T08:00:00.000Z\",\"dropOffTime\":\"2025-08-01T18:29:59.000Z\",\"dropAddress\":\"Phoenix Mall Of Asia - 239/240, Byatarayanapura, Yelahanka, Hobli, Yelahanka Taluk, Bellary Rd, Bengaluru, Karnataka 560092\",\"reportingAddress\":\"H&m WTC Brigade Gateway\",\"remarks\":\"Guest will use this car for full days\",\"ftNo\":\"\",\"dutyTypeName\":\"Local Uses\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\"}]}}",
-										"24": "2025-08-01 05:25:23.877",
-										"25": "system",
-										"26": "2025-08-01 11:09:31.347",
-										"27": "sagarchauhan"
-									},
-									{
-										"0": "2022",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_E5uvm2sCkdq94vDuj_F6Jah",
-										"2": "930bf4e3a32142e61c81b230afb5305a48051acd",
-										"3": "booking.duty.network.incoming-request",
-										"4": "E5uvm2sCkdq94vDuj",
-										"5": "Bengaluru",
-										"6": "",
-										"7": "2025-08-03 14:15:00",
-										"8": "2025-08-03 23:59:59",
-										"9": "1970-01-01 14:15:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "BLOCK-K, BLOCK-K, BRIGADE GATEWAY, Brigade Gateway Resident Ln, Rajajinagar, Bengaluru, Karnataka 560055, India",
-										"12": "Kempegowda International Airport Terminal-1, Bengaluru International Airport, Gangamuthanahalli, Karnataka 562300, India",
-										"13": "Airport Transfers",
-										"14": "flatRate",
-										"15": "0",
-										"16": "0",
-										"17": "Dzire/Amaze/Etios",
-										"18": "h8GPqcnuKEsoz7kt",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-08-01 14:58:26.407",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"Tc3oZniia9E7NqnMD\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"L9i4s4jqe2ARxbzjd\",\"vehicleGroupId\":\"orf3PDzd8nw3yBqvk\",\"labels\":[],\"passenger\":[{\"name\":\"Varun Tandon\",\"phoneNumber\":\"9560705557\",\"email\":\"varun.tandon@hm.com\"}],\"city\":{\"fromId\":\"mFBeoGdW8CXiqK5xW\",\"toId\":\"mFBeoGdW8CXiqK5xW\",\"fromName\":\"Bengaluru\",\"toName\":\"Bengaluru\"},\"startAt\":\"2025-08-03T08:45:00.000Z\",\"endAt\":\"2025-08-03T18:29:59.000Z\",\"reportingTime\":\"14:15\",\"garageStart\":0,\"ftNo\":\"6E 6039\",\"bookingId\":\"26295016\",\"price\":0,\"status\":\"booked\",\"associateBookingId\":\"56647070\",\"reportingAddress\":{\"fAdd\":\"BLOCK-K, BLOCK-K, BRIGADE GATEWAY, Brigade Gateway Resident Ln, Rajajinagar, Bengaluru, Karnataka 560055, India\",\"geopoint\":[77.5568818,13.0104516],\"city\":\"Bengaluru\"},\"dropAddress\":{\"fAdd\":\"Kempegowda International Airport Terminal-1, Bengaluru International Airport, Gangamuthanahalli, Karnataka 562300, India\",\"geopoint\":[77.70871,13.199226],\"city\":\"Gangamuthanahalli\"},\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\",\"duties\":[{\"_id\":\"Y84tkFWpX7mkwmDAw\",\"number\":1,\"pickUpTime\":\"2025-08-03T08:45:00.000Z\",\"dropOffTime\":\"2025-08-03T18:29:59.000Z\",\"reportingAddress\":\"BLOCK-K, BLOCK-K, BRIGADE GATEWAY, Brigade Gateway Resident Ln, Rajajinagar, Bengaluru, Karnataka 560055, India\",\"dropAddress\":\"Kempegowda International Airport Terminal-1, Bengaluru International Airport, Gangamuthanahalli, Karnataka 562300, India\",\"remarks\":\"\",\"ftNo\":\"6E 6039\",\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\"}]}}",
-										"24": "2025-08-01 08:49:24.41",
-										"25": "system",
-										"26": "2025-08-01 14:58:28.83",
-										"27": "vijaykashyap"
-									},
-									{
-										"0": "2023",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_39CgRjvZC7iSWiD8P_HDuep",
-										"2": "bdefaebfcae2b26912247af690dd041bdee43c1d",
-										"3": "booking.duty.network.incoming-request",
-										"4": "39CgRjvZC7iSWiD8P",
-										"5": "Delhi",
-										"6": "",
-										"7": "2025-08-03 19:30:00",
-										"8": "2025-08-03 23:59:59",
-										"9": "1970-01-01 19:30:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "Terminal 1, Terminal 1, Indira Gandhi International Airport, New Delhi, Delhi 110037, India",
-										"12": "Sheraton New Delhi Hotel, Saket District Centre, District Centre, Sector 6, Saket, New Delhi, Delhi 110017, India",
-										"13": "Airport Transfers",
-										"14": "flatRate",
-										"15": "0",
-										"16": "0",
-										"17": "Dzire/Amaze/Etios",
-										"18": "u8ya2m9Z7H9E88wr",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-08-01 14:59:35.227",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"PGB6qkvhgJE3h6AbM\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"L9i4s4jqe2ARxbzjd\",\"vehicleGroupId\":\"orf3PDzd8nw3yBqvk\",\"labels\":[],\"passenger\":[{\"name\":\"Varun Tandon\",\"phoneNumber\":\"9560705557\",\"email\":\"varun.tandon@hm.com\"}],\"city\":{\"fromId\":\"Ha2L3hPAbHqq5s42k\",\"toId\":\"Ha2L3hPAbHqq5s42k\",\"fromName\":\"Delhi\",\"toName\":\"Delhi\"},\"startAt\":\"2025-08-03T14:00:00.000Z\",\"endAt\":\"2025-08-03T18:29:59.000Z\",\"reportingTime\":\"19:30\",\"garageStart\":0,\"ftNo\":\"6E 6039\",\"bookingId\":\"27283841\",\"price\":0,\"status\":\"booked\",\"associateBookingId\":\"99987914\",\"reportingAddress\":{\"fAdd\":\"Terminal 1, Terminal 1, Indira Gandhi International Airport, New Delhi, Delhi 110037, India\",\"geopoint\":[77.11971539999999,28.5627225],\"city\":\"New Delhi\"},\"dropAddress\":{\"fAdd\":\"Sheraton New Delhi Hotel, Saket District Centre, District Centre, Sector 6, Saket, New Delhi, Delhi 110017, India\",\"geopoint\":[77.2160379,28.5268412],\"city\":\"New Delhi\"},\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\",\"duties\":[{\"_id\":\"itYhN4tdYCmXYfkeg\",\"number\":1,\"pickUpTime\":\"2025-08-03T14:00:00.000Z\",\"dropOffTime\":\"2025-08-03T18:29:59.000Z\",\"reportingAddress\":\"Terminal 1, Terminal 1, Indira Gandhi International Airport, New Delhi, Delhi 110037, India\",\"dropAddress\":\"Sheraton New Delhi Hotel, Saket District Centre, District Centre, Sector 6, Saket, New Delhi, Delhi 110017, India\",\"remarks\":\"\",\"ftNo\":\"6E 6039\",\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\"}]}}",
-										"24": "2025-08-01 08:49:37.613",
-										"25": "system",
-										"26": "2025-08-01 14:59:39.76",
-										"27": "vijaykashyap"
-									},
-									{
-										"0": "2024",
-										"1": "rAHZu89qzJW8CJzcF_booking_duty_network_incoming-request_BqHY9dghaGwgQXFMq_bb84K",
-										"2": "1d9655f691f19cb9453fa181ef293061c025dce8",
-										"3": "booking.duty.network.incoming-request",
-										"4": "BqHY9dghaGwgQXFMq",
-										"5": "Bengaluru",
-										"6": "",
-										"7": "2025-08-04 12:15:00",
-										"8": "2025-08-04 23:59:59",
-										"9": "1970-01-01 12:15:00",
-										"10": "H&M Hennes and Mauritz India Pvt Ltd",
-										"11": "Terminal 2, Terminal 2, Bengaluru, Gangamuthanahalli, Karnataka 560300, India",
-										"12": "World Trade Center, World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055, India",
-										"13": "Airport Transfers",
-										"14": "flatRate",
-										"15": "0",
-										"16": "0",
-										"17": "Dzire/Amaze/Etios",
-										"18": "XXTda8Q7227CHdZT",
-										"19": "1",
-										"20": "BOOKING CREATED",
-										"21": "2025-08-01 15:00:45.29",
-										"22": "OK",
-										"23": "{\"success\":true,\"data\":{\"_id\":\"bW6assPRApQAaENJk\",\"customerId\":\"KodWSH3bwAhWHrguS\",\"dutyTypeId\":\"L9i4s4jqe2ARxbzjd\",\"vehicleGroupId\":\"orf3PDzd8nw3yBqvk\",\"labels\":[],\"passenger\":[{\"name\":\"Kapil Yadav\",\"phoneNumber\":\"9953577463\",\"email\":\"kapil.yadav@hm.com\"}],\"city\":{\"fromId\":\"mFBeoGdW8CXiqK5xW\",\"toId\":\"mFBeoGdW8CXiqK5xW\",\"fromName\":\"Bengaluru\",\"toName\":\"Bengaluru\"},\"startAt\":\"2025-08-04T06:45:00.000Z\",\"endAt\":\"2025-08-04T18:29:59.000Z\",\"reportingTime\":\"12:15\",\"garageStart\":0,\"ftNo\":\"AI 2801\",\"etd\":\"23:59\",\"reportingAddress\":\"Terminal 2, Terminal 2, Bengaluru, Gangamuthanahalli, Karnataka 560300, India\",\"dropAddress\":\"World Trade Center, World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055, India\",\"bookingId\":\"88609291\",\"price\":0,\"status\":\"booked\",\"associateBookingId\":\"89276289\",\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\",\"duties\":[{\"_id\":\"L6tNbqk3ETYeNWeNb\",\"number\":1,\"pickUpTime\":\"2025-08-04T06:45:00.000Z\",\"dropOffTime\":\"2025-08-04T18:29:59.000Z\",\"dropAddress\":\"World Trade Center, World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055, India\",\"reportingAddress\":\"Terminal 2, Terminal 2, Bengaluru, Gangamuthanahalli, Karnataka 560300, India\",\"remarks\":\"\",\"ftNo\":\"AI 2801\",\"dutyTypeName\":\"Airport Transfers\",\"vehicleGroupName\":\"Dzire/Amaze/Etios\"}]}}",
-										"24": "2025-08-01 08:50:34.783",
-										"25": "system",
-										"26": "2025-08-01 15:00:52.543",
-										"27": "vijaykashyap"
-									}
-								],
-								"schema": [
-									{
-										"key": "0",
-										"name": "PK_ID",
-										"type": "bigint"
-									},
-									{
-										"key": "1",
-										"name": "event_id",
-										"type": "string"
-									},
-									{
-										"key": "2",
-										"name": "received_signature",
-										"type": "string"
-									},
-									{
-										"key": "3",
-										"name": "event_name",
-										"type": "string"
-									},
-									{
-										"key": "4",
-										"name": "_id",
-										"type": "string"
-									},
-									{
-										"key": "5",
-										"name": "fromCity",
-										"type": "string"
-									},
-									{
-										"key": "6",
-										"name": "toCity",
-										"type": "string"
-									},
-									{
-										"key": "7",
-										"name": "pickUpTime",
-										"type": "timestamp"
-									},
-									{
-										"key": "8",
-										"name": "dropOffTime",
-										"type": "timestamp"
-									},
-									{
-										"key": "9",
-										"name": "reportingTime",
-										"type": "timestamp"
-									},
-									{
-										"key": "10",
-										"name": "companyName",
-										"type": "string"
-									},
-									{
-										"key": "11",
-										"name": "reportingAddress",
-										"type": "string"
-									},
-									{
-										"key": "12",
-										"name": "dropAddress",
-										"type": "string"
-									},
-									{
-										"key": "13",
-										"name": "dutyType_name",
-										"type": "string"
-									},
-									{
-										"key": "14",
-										"name": "dutyType_type",
-										"type": "string"
-									},
-									{
-										"key": "15",
-										"name": "dutyType_maxKms",
-										"type": "bigint"
-									},
-									{
-										"key": "16",
-										"name": "dutyType_maxHours",
-										"type": "bigint"
-									},
-									{
-										"key": "17",
-										"name": "vehicleGroup",
-										"type": "string"
-									},
-									{
-										"key": "18",
-										"name": "requestHash",
-										"type": "string"
-									},
-									{
-										"key": "19",
-										"name": "is_processed",
-										"type": "bigint"
-									},
-									{
-										"key": "20",
-										"name": "status",
-										"type": "string"
-									},
-									{
-										"key": "21",
-										"name": "processed_datetime",
-										"type": "timestamp"
-									},
-									{
-										"key": "22",
-										"name": "API_response_code",
-										"type": "string"
-									},
-									{
-										"key": "23",
-										"name": "API_response",
-										"type": "string"
-									},
-									{
-										"key": "24",
-										"name": "CDAT",
-										"type": "timestamp"
-									},
-									{
-										"key": "25",
-										"name": "UIDC",
-										"type": "string"
-									},
-									{
-										"key": "26",
-										"name": "MDAT",
-										"type": "timestamp"
-									},
-									{
-										"key": "27",
-										"name": "UIDM",
-										"type": "string"
-									}
-								],
-								"truncated": false
-							},
-							"isSummary": false,
-							"language": "scala",
-							"wranglerEntryContext": null
-						},
-						"persist_state": {
-							"view": {
-								"type": "details",
-								"chartOptions": {
-									"chartType": "bar",
-									"aggregationType": "sum",
-									"categoryFieldKeys": [
-										"1"
-									],
-									"seriesFieldKeys": [
-										"0"
-									],
-									"isStacked": false
-								}
-							}
-						}
-					},
-					"1df002a4-b3df-4ecc-a5f4-be7f65486e86": {
-						"type": "Synapse.DataFrame",
-						"sync_state": {
-							"table": {
-								"rows": [
-									{
-										"0": "RAC API ERROR",
-										"1": "1"
-									},
-									{
-										"0": "REJECTED",
-										"1": "3"
-									},
-									{
-										"0": "PENDING",
-										"1": "4"
-									},
-									{
-										"0": "BOOKING CREATED",
-										"1": "107"
-									},
-									{
-										"0": "ERROR",
-										"1": "8"
-									}
-								],
-								"schema": [
-									{
-										"key": "0",
-										"name": "status",
-										"type": "string"
-									},
-									{
-										"key": "1",
-										"name": "count",
-										"type": "bigint"
-									}
-								],
-								"truncated": false
-							},
-							"isSummary": false,
-							"language": "scala",
-							"wranglerEntryContext": {
-								"candidateVariableNames": [
-									"kpi_summary"
-								],
-								"dataframeType": "pyspark"
-							}
-						},
-						"persist_state": {
-							"view": {
-								"type": "details",
-								"chartOptions": {
-									"chartType": "bar",
-									"aggregationType": "sum",
-									"categoryFieldKeys": [
-										"0"
-									],
-									"seriesFieldKeys": [
-										"1"
-									],
-									"isStacked": false
-								}
-							}
-						}
-					}
-				}
-			},
 			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
 			"language_info": {
 				"name": "python"
 			},
@@ -576,14 +38,13 @@
 				"endpoint": "https://synapse-workspace-dotpl.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkkpi",
 				"auth": {
 					"type": "AAD",
-					"authResource": "https://dev.azuresynapse.net",
-					"authHeader": null
+					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.5",
 				"nodeCount": 3,
 				"cores": 4,
 				"memory": 28,
-				"extraHeader": null
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -595,7 +56,7 @@
 					"from pyspark.sql.functions import when, col, lit\n",
 					""
 				],
-				"execution_count": 1
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -616,6 +77,15 @@
 					""
 				],
 				"execution_count": 4
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"last_run_at_ist = mssparkutils.notebook.params.get(\"last_run_at_ist\")\n",
+					"print(f\"Parameter from pipeline: {last_run_at_ist}\")\n",
+					""
+				],
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -685,7 +155,8 @@
 					"#                 .when(col(\"odoo_state\") == \"pending\", lit(\"Pending\"))\n",
 					"#                 .otherwise(lit(\"Completed\")))\n",
 					""
-				]
+				],
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -704,39 +175,41 @@
 				"cell_type": "code",
 				"source": [
 					"\n",
-					"# 5️⃣ Write to Azure SQL Database\n",
-					"final_df.write \\\n",
-					"    .format(\"jdbc\") \\\n",
-					"    .option(\"url\", \"jdbc:sqlserver://alert-platform-sql-server.database.windows.net;databaseName=AlertPlatformDB\") \\\n",
-					"    .option(\"dbtable\", \"kpi_details_proj1\") \\\n",
-					"    .option(\"user\", \"<AZURE_SQL_USER>\") \\\n",
-					"    .option(\"password\", \"<AZURE_SQL_PASSWORD>\") \\\n",
-					"    .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
-					"    .mode(\"overwrite\") \\\n",
-					"    .save()\n",
+					"# # 5️⃣ Write to Azure SQL Database\n",
+					"# final_df.write \\\n",
+					"#     .format(\"jdbc\") \\\n",
+					"#     .option(\"url\", \"jdbc:sqlserver://alert-platform-sql-server.database.windows.net;databaseName=AlertPlatformDB\") \\\n",
+					"#     .option(\"dbtable\", \"kpi_details_proj1\") \\\n",
+					"#     .option(\"user\", \"<AZURE_SQL_USER>\") \\\n",
+					"#     .option(\"password\", \"<AZURE_SQL_PASSWORD>\") \\\n",
+					"#     .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
+					"#     .mode(\"overwrite\") \\\n",
+					"#     .save()\n",
 					"\n",
-					"# Write summary (optional)\n",
-					"kpi_counts.write \\\n",
-					"    .format(\"jdbc\") \\\n",
-					"    .option(\"url\", \"jdbc:sqlserver://alert-platform-sql-server.database.windows.net;databaseName=AlertPlatformDB\") \\\n",
-					"    .option(\"dbtable\", \"kpi_summary_proj1\") \\\n",
-					"    .option(\"user\", \"<AZURE_SQL_USER>\") \\\n",
-					"    .option(\"password\", \"<AZURE_SQL_PASSWORD>\") \\\n",
-					"    .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
-					"    .mode(\"overwrite\") \\\n",
-					"    .save()\n",
+					"# # Write summary (optional)\n",
+					"# kpi_counts.write \\\n",
+					"#     .format(\"jdbc\") \\\n",
+					"#     .option(\"url\", \"jdbc:sqlserver://alert-platform-sql-server.database.windows.net;databaseName=AlertPlatformDB\") \\\n",
+					"#     .option(\"dbtable\", \"kpi_summary_proj1\") \\\n",
+					"#     .option(\"user\", \"<AZURE_SQL_USER>\") \\\n",
+					"#     .option(\"password\", \"<AZURE_SQL_PASSWORD>\") \\\n",
+					"#     .option(\"driver\", \"com.microsoft.sqlserver.jdbc.SQLServerDriver\") \\\n",
+					"#     .mode(\"overwrite\") \\\n",
+					"#     .save()\n",
 					"\n",
-					"print(\"✅ Data successfully loaded to Azure SQL Database\")"
-				]
+					"# print(\"✅ Data successfully loaded to Azure SQL Database\")"
+				],
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
 				"source": [
-					"from datetime import datetime\n",
-					"now = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n",
-					"final_df = final_df.withColumn(\"run_timestamp\", lit(now))\n",
+					"# from datetime import datetime\n",
+					"# now = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n",
+					"# final_df = final_df.withColumn(\"run_timestamp\", lit(now))\n",
 					""
-				]
+				],
+				"execution_count": null
 			}
 		]
 	}
