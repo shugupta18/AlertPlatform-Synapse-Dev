@@ -22,15 +22,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('workspaceName'), '/sparkkpi')]",
-			"type": "Microsoft.Synapse/workspaces/bigDataPools",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('workspaceName'), '/synapse-workspace-dotpl-WorkspaceDefaultSqlServer')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
@@ -124,7 +115,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "cc135203-eaed-4a7b-810f-374a9e79de18"
+						"spark.autotune.trackingId": "51452b8b-8a39-4501-9ca0-57c5772a8e8d"
 					}
 				},
 				"metadata": {
@@ -164,7 +155,7 @@
 							""
 						],
 						"outputs": [],
-						"execution_count": 2
+						"execution_count": null
 					},
 					{
 						"cell_type": "code",
@@ -175,7 +166,7 @@
 							"\n",
 							"\n",
 							"# Example: read Odoo staging parquet\n",
-							"indecab_network_requests_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/Staging/ITH/Indecab_Dashboard/Indecab_Network_Requests.parquet\")\n",
+							"indecab_network_requests_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/synapse/Staging/ITH/Indecab_Dashboard/Indecab_Network_Requests.parquet\")\n",
 							"\n",
 							"# Example: read MSSQL staging parquet\n",
 							"# mssql_df = spark.read.parquet(\"abfss://synapsecontainer@dotpladlsv2.dfs.core.windows.net/staging/mssql_booking/*\")\n",
@@ -185,7 +176,7 @@
 							""
 						],
 						"outputs": [],
-						"execution_count": null
+						"execution_count": 4
 					},
 					{
 						"cell_type": "code",
@@ -212,7 +203,7 @@
 							""
 						],
 						"outputs": [],
-						"execution_count": null
+						"execution_count": 10
 					},
 					{
 						"cell_type": "code",
@@ -239,7 +230,7 @@
 							""
 						],
 						"outputs": [],
-						"execution_count": null
+						"execution_count": 5
 					},
 					{
 						"cell_type": "code",
