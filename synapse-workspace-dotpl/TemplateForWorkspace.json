@@ -115,7 +115,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "84edd2bf-39f3-419c-85ce-803fa26a5446"
+						"spark.autotune.trackingId": "3cb53f8b-a331-43a3-84f6-1c8532666940"
 					}
 				},
 				"metadata": {
@@ -140,22 +140,20 @@
 						"sparkVersion": "3.5",
 						"nodeCount": 3,
 						"cores": 4,
-						"memory": 28,
-						"automaticScaleJobs": false
+						"memory": 28
 					},
 					"sessionKeepAliveTimeout": 30
 				},
 				"cells": [
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"from pyspark.sql import SparkSession\n",
 							"from pyspark.sql.functions import when, col, lit\n",
 							""
 						],
 						"outputs": [],
-						"execution_count": null
+						"execution_count": 5
 					},
 					{
 						"cell_type": "code",
@@ -180,7 +178,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"last_run_at_ist = mssparkutils.notebook.params.get(\"last_run_at_ist\")\n",
 							"print(f\"Parameter from pipeline: {last_run_at_ist}\")\n",
@@ -207,7 +204,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"# odoo_df = spark.read \\\n",
 							"#     .format(\"jdbc\") \\\n",
@@ -234,7 +230,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"# joined_df = odoo_df.join(\n",
 							"#     mssql_df,\n",
@@ -280,7 +275,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"\n",
 							"# # 5️⃣ Write to Azure SQL Database\n",
@@ -312,7 +306,6 @@
 					},
 					{
 						"cell_type": "code",
-						"metadata": {},
 						"source": [
 							"# from datetime import datetime\n",
 							"# now = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n",
@@ -368,11 +361,11 @@
 			"properties": {
 				"autoPause": {
 					"enabled": true,
-					"delayInMinutes": 5
+					"delayInMinutes": 50
 				},
 				"autoScale": {
-					"enabled": false,
-					"maxNodeCount": 10,
+					"enabled": true,
+					"maxNodeCount": 5,
 					"minNodeCount": 3
 				},
 				"nodeCount": 3,
@@ -384,13 +377,22 @@
 					"configurationType": "Artifact",
 					"filename": "kpi_optimized_config",
 					"content": "{\"name\":\"kpi_optimized_config\",\"properties\":{\"configs\":{\"spark.sql.shuffle.partitions\":\"4\",\"spark.sql.execution.arrow.pyspark.enabled\":\"true\",\"spark.sql.adaptive.enabled\":\"true\",\"spark.sql.adaptive.coalescePartitions.enabled\":\"true\",\"spark.executor.memoryOverhead\":\"512m\",\"spark.executor.heartbeatInterval\":\"30s\",\"spark.network.timeout\":\"300s\",\"spark.sql.broadcastTimeout\":\"300\",\"spark.sql.autoBroadcastJoinThreshold\":\"50MB\",\"spark.sql.files.maxPartitionBytes\":\"64MB\"},\"annotations\":[],\"type\":\"Microsoft.Synapse/workspaces/sparkconfigurations\",\"description\":\"\",\"notes\":\"\",\"created\":\"2025-11-07T19:03:38.2580000+05:30\",\"createdBy\":\"shugupta1811@burstinbytes.in\",\"configMergeRule\":{\"admin.currentOperation.spark.sql.shuffle.partitions\":\"replace\",\"admin.currentOperation.spark.sql.execution.arrow.pyspark.enabled\":\"replace\",\"admin.currentOperation.spark.sql.adaptive.enabled\":\"replace\",\"admin.currentOperation.spark.sql.adaptive.coalescePartitions.enabled\":\"replace\",\"admin.currentOperation.spark.executor.memoryOverhead\":\"replace\",\"admin.currentOperation.spark.executor.heartbeatInterval\":\"replace\",\"admin.currentOperation.spark.network.timeout\":\"replace\",\"admin.currentOperation.spark.sql.broadcastTimeout\":\"replace\",\"admin.currentOperation.spark.sql.autoBroadcastJoinThreshold\":\"replace\",\"admin.currentOperation.spark.sql.files.maxPartitionBytes\":\"replace\"}}}",
-					"time": "2025-11-07T13:34:04.5382003Z"
+					"time": "2025-11-24T07:19:45.4294718Z"
 				},
 				"sessionLevelPackagesEnabled": false,
 				"annotations": []
 			},
 			"dependsOn": [],
 			"location": "centralindia"
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/sparkkpidev')]",
+			"type": "Microsoft.Synapse/workspaces/bigDataPools",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }
