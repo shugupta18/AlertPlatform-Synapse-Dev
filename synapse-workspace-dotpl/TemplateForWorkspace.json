@@ -364,8 +364,8 @@
 					"delayInMinutes": 50
 				},
 				"autoScale": {
-					"enabled": true,
-					"maxNodeCount": 5,
+					"enabled": false,
+					"maxNodeCount": 3,
 					"minNodeCount": 3
 				},
 				"nodeCount": 3,
@@ -373,12 +373,6 @@
 				"nodeSizeFamily": "MemoryOptimized",
 				"sparkVersion": "3.5",
 				"isComputeIsolationEnabled": false,
-				"sparkConfigProperties": {
-					"configurationType": "Artifact",
-					"filename": "kpi_optimized_config",
-					"content": "{\"name\":\"kpi_optimized_config\",\"properties\":{\"configs\":{\"spark.sql.shuffle.partitions\":\"4\",\"spark.sql.execution.arrow.pyspark.enabled\":\"true\",\"spark.sql.adaptive.enabled\":\"true\",\"spark.sql.adaptive.coalescePartitions.enabled\":\"true\",\"spark.executor.memoryOverhead\":\"512m\",\"spark.executor.heartbeatInterval\":\"30s\",\"spark.network.timeout\":\"300s\",\"spark.sql.broadcastTimeout\":\"300\",\"spark.sql.autoBroadcastJoinThreshold\":\"50MB\",\"spark.sql.files.maxPartitionBytes\":\"64MB\"},\"annotations\":[],\"type\":\"Microsoft.Synapse/workspaces/sparkconfigurations\",\"description\":\"\",\"notes\":\"\",\"created\":\"2025-11-07T19:03:38.2580000+05:30\",\"createdBy\":\"shugupta1811@burstinbytes.in\",\"configMergeRule\":{\"admin.currentOperation.spark.sql.shuffle.partitions\":\"replace\",\"admin.currentOperation.spark.sql.execution.arrow.pyspark.enabled\":\"replace\",\"admin.currentOperation.spark.sql.adaptive.enabled\":\"replace\",\"admin.currentOperation.spark.sql.adaptive.coalescePartitions.enabled\":\"replace\",\"admin.currentOperation.spark.executor.memoryOverhead\":\"replace\",\"admin.currentOperation.spark.executor.heartbeatInterval\":\"replace\",\"admin.currentOperation.spark.network.timeout\":\"replace\",\"admin.currentOperation.spark.sql.broadcastTimeout\":\"replace\",\"admin.currentOperation.spark.sql.autoBroadcastJoinThreshold\":\"replace\",\"admin.currentOperation.spark.sql.files.maxPartitionBytes\":\"replace\"}}}",
-					"time": "2025-11-24T07:19:45.4294718Z"
-				},
 				"sessionLevelPackagesEnabled": false,
 				"annotations": []
 			},
@@ -386,11 +380,22 @@
 			"location": "centralindia"
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/sparkkpidev')]",
-			"type": "Microsoft.Synapse/workspaces/bigDataPools",
+			"name": "[concat(parameters('workspaceName'), '/Indecab_pipeline_SQL')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
-				"annotations": []
+				"content": {
+					"query": "-- 1) Create a user database (run once)\n-- CREATE DATABASE my_user_db;\n-- GO\n\n-- 2) Switch to that DB context\n-- USE my_user_db;\n-- GO\n\n-- 3) Create an external data source pointing to the container (run once)\n--    This makes OPENROWSET with DATA_SOURCE simpler and lets CETAS write relative paths.\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'MyAdlsBlob')\nBEGIN\n  CREATE EXTERNAL DATA SOURCE MyAdlsBlob\n  WITH (\n    LOCATION = 'https://dotpladlsv2.blob.core.windows.net/synapsecontainer'\n  );\nEND\nGO\n\n-- 4) (Optional) Create a parquet file format - useful for CETAS\nIF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'ParquetFileFormat')\nBEGIN\n  CREATE EXTERNAL FILE FORMAT ParquetFileFormat\n  WITH (\n    FORMAT_TYPE = PARQUET\n  );\nEND\nGO\n\n-- 5) Quick ad-hoc aggregation (preview results in the studio)\n--    Adjust column names in the WITH(...) if your parquet contains different field names\nSELECT\n  COALESCE(fromCity, '(NULL)') AS fromCity,\n  event_name,\n  COUNT(*) AS total_events,\n  MIN(PK_ID) AS sample_pk,\n  -- add more aggregates as needed\n  SYSUTCDATETIME() AS agg_run_utc\nFROM\n  OPENROWSET(\n    BULK 'https://dotpladlsv2.blob.core.windows.net/synapsecontainer/Staging/ITH/Indecab_Dashboard/*.parquet',\n    FORMAT = 'PARQUET'\n  ) WITH (\n    PK_ID BIGINT,\n    event_id VARCHAR(200),\n    event_name VARCHAR(500),\n    _id VARCHAR(200),\n    fromCity VARCHAR(200),\n    toCity VARCHAR(200)\n    -- add other columns here as needed\n  ) AS rows\nGROUP BY COALESCE(fromCity, '(NULL)'), event_name\nORDER BY total_events DESC;\nGO\n\n-- 6) Write the aggregate to ADLS as parquet using CETAS (external table)\n--    Make sure the target path ('aggregates/Indecab_Network_Requests_Agg/') is empty or non-existent.\nIF OBJECT_ID('dbo.booking_aggregates_ext') IS NOT NULL\n  DROP EXTERNAL TABLE dbo.booking_aggregates_ext;\nGO\n\nCREATE EXTERNAL TABLE dbo.booking_aggregates_ext\nWITH (\n  LOCATION = 'aggregates/Indecab_Network_Requests_Agg/',   -- relative to container root\n  DATA_SOURCE = MyAdlsBlob,\n  FILE_FORMAT = ParquetFileFormat\n)\nAS\nSELECT\n  COALESCE(fromCity, '(NULL)') AS fromCity,\n  event_name,\n  COUNT(*) AS total_events,\n  SYSUTCDATETIME() AS agg_run_utc\nFROM\n  OPENROWSET(\n    BULK 'Staging/ITH/Indecab_Dashboard/*.parquet',\n    DATA_SOURCE = 'MyAdlsBlob',\n    FORMAT = 'PARQUET'\n  ) WITH (\n    PK_ID BIGINT,\n    event_id VARCHAR(200),\n    event_name VARCHAR(500),\n    _id VARCHAR(200),\n    fromCity VARCHAR(200),\n    toCity VARCHAR(200)\n  ) AS rows\nGROUP BY COALESCE(fromCity, '(NULL)'), event_name;\nGO\n\n-- 7) Verify the CETAS output by reading the generated parquet files\nSELECT TOP (20) *\nFROM OPENROWSET(\n  BULK 'https://dotpladlsv2.blob.core.windows.net/synapsecontainer/aggregates/Indecab_Network_Requests_Agg/*.parquet',\n  FORMAT='PARQUET'\n) AS t;\nGO\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "my_user_db",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
 			},
 			"dependsOn": []
 		}
